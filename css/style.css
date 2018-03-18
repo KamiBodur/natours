@@ -123,6 +123,19 @@ body {
     }
 }
 
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    100% {
+        opacity: 1;
+        /* it will make heading look like before animation */
+        transform: translateY(0);
+    }
+}
+
 .btn:link,
 .btn:visited {
     display: inline-block;
@@ -131,6 +144,7 @@ body {
     padding: 15px 40px;
     border-radius: 100px;
     transition: all .2s;
+    position: relative;
 }
 
 .btn:hover {
@@ -149,4 +163,35 @@ body {
 .btn-white {
     background-color: #fff;
     color: #777;
+}
+
+.btn::after {
+    /* ::after will work only when you add content prop. and we want it to behave like our button so it has to have display prop. of inline-block */
+    /* .btn::after is treated like a child of the .btn */
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    /* to put it behind actual button use absolute positioning and add reference to closest ancestor and add z-index */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+/* this ::after will work only when we hovered over the button */
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom .5s ease-out .75s;
+    /* applies the 0% animation before it stars - The element will get the style values that is set by the first keyframe (depends on animation-direction), and retain this during the animation-delay period  */
+    animation-fill-mode: backwards;
 }
