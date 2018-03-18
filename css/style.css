@@ -57,6 +57,8 @@ body {
     left: 50%;
     /* it is postioned in relation to itself */
     transform: translate(-50%, -50%);
+    /* this will center the button .btn beacause it is an ilnine-block elemenet whchis is treated like a text */
+    text-align: center;
 }
 
 .heading-primary {
@@ -64,6 +66,7 @@ body {
     text-transform: uppercase;
 /* in case the animation is shaking at the end - but it was not happening in my browser */
     backface-visibility: hidden;
+    margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -118,4 +121,32 @@ body {
         /* it will make heading look like before animation */
         transform: translateX(0);
     }
+}
+
+.btn:link,
+.btn:visited {
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    border-radius: 100px;
+    transition: all .2s;
+}
+
+.btn:hover {
+    /* Y axis moves from the top to bottom so we need negative value */
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+
+.btn:active {
+    /* it is in relation to initail link state */
+    transform: translateY(-1px);
+    /* values of the Y axis and blur are twice smaller then on :hever - from experience it works good */
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
 }
