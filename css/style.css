@@ -7,19 +7,32 @@ Dark green: #28b485
 
 */
 
-* {
+*,
+/* good practice to do it like that! without this pseudo elements won't get these properties!*/
+*::after,
+*::before {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    /* have a look at the body */
+    box-sizing: inherit;
+}
+
+html {
+    /* everywhere I changed pixels to rems  */
+    /* font-size is in% as to user browser could easily change the font size within his browser (not in pxs!) - 16px = 100% */
+    /* 10px/16px = 0.625 => 62.5% */
+    font-size: 62.5%;
 }
 
 body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    /* font-size: 16px; */
     line-height: 1.7;
     color: #777;
-    padding: 30px;
+    padding: 3rem;
+/* better practice to put borderd box value here than in *selector and then give the box-sizing: inherit; to the *selector */
+    box-sizing: border-box;
 }
 
 .header {
@@ -40,13 +53,13 @@ body {
 .logo-box {
     /* check postion of .header and see comment */
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
 }
 
 .logo {
     /* width is automatically figured out - preferance to control the height of an element */
-    height: 35px;
+    height: 3.5rem;
 }
 
 .text-box {
@@ -66,14 +79,14 @@ body {
     text-transform: uppercase;
 /* in case the animation is shaking at the end - but it was not happening in my browser */
     backface-visibility: hidden;
-    margin-bottom: 60px;
+    margin-bottom: 6rem;
 }
 
 .heading-primary-main {
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
 
     animation-name: moveInLeft;
     animation-duration: 1.5s;
@@ -82,9 +95,9 @@ body {
 
 .heading-primary-sub {
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.4px;
+    letter-spacing: 1.75rem;
 
     animation-name: moveInRight;
     animation-duration: 1.5s;
@@ -94,11 +107,11 @@ body {
 @keyframes moveInLeft {
     0% {
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-10rem);
     }
     /* at this stage we create little bump/jump */
     80% {
-        transform: translateX(10px);
+        transform: translateX(1rem);
     }
     100% {
         opacity: 1;
@@ -110,11 +123,11 @@ body {
 @keyframes moveInRight {
     0% {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(10rem);
     }
     /* at this stage we create little bump/jump */
     80% {
-        transform: translateX(-10px);
+        transform: translateX(-1rem);
     }
     100% {
         opacity: 1;
@@ -126,7 +139,7 @@ body {
 @keyframes moveInBottom {
     0% {
         opacity: 0;
-        transform: translateY(100px);
+        transform: translateY(10rem);
     }
 
     100% {
@@ -138,26 +151,27 @@ body {
 
 .btn:link,
 .btn:visited {
+    font-size: 1.6rem;
     display: inline-block;
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
-    border-radius: 100px;
+    padding: 1.5rem 4rem;
+    border-radius: 10rem;
     transition: all .2s;
     position: relative;
 }
 
 .btn:hover {
     /* Y axis moves from the top to bottom so we need negative value */
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
 }
 
 .btn:active {
     /* it is in relation to initail link state */
-    transform: translateY(-1px);
+    transform: translateY(-0.1rem);
     /* values of the Y axis and blur are twice smaller then on :hever - from experience it works good */
-    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
 }
 
 .btn-white {
