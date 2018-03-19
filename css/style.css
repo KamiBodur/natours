@@ -50,19 +50,19 @@ body {
     clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
 }
 
-.logo-box {
+.header__logo-box {
     /* check postion of .header and see comment */
     position: absolute;
     top: 4rem;
     left: 4rem;
 }
 
-.logo {
+.header__logo {
     /* width is automatically figured out - preferance to control the height of an element */
     height: 3.5rem;
 }
 
-.text-box {
+.header__text-box {
     position: absolute;
     /* top and left specify the distance from the top and left side of the ancestor(parent) and the left corner of a .text-box div is in a center of the browser window (you can add bacgorund-color to see it clearly) */
     /* top: 40% cause it looks better vertically */
@@ -82,7 +82,7 @@ body {
     margin-bottom: 6rem;
 }
 
-.heading-primary-main {
+.heading-primary--main {
     display: block;
     font-size: 6rem;
     font-weight: 400;
@@ -93,7 +93,7 @@ body {
     animation-timing-function: ease-out;
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
     display: block;
     font-size: 2rem;
     font-weight: 700;
@@ -174,7 +174,7 @@ body {
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
 }
 
-.btn-white {
+.btn--white {
     background-color: #fff;
     color: #777;
 }
@@ -195,7 +195,7 @@ body {
     transition: all .4s;
 }
 
-.btn-white::after {
+.btn--white::after {
     background-color: #fff;
 }
 /* this ::after will work only when we hovered over the button */
@@ -204,7 +204,7 @@ body {
     opacity: 0;
 }
 
-.btn-animated {
+.btn--animated {
     animation: moveInBottom .5s ease-out .75s;
     /* applies the 0% animation before it stars - The element will get the style values that is set by the first keyframe (depends on animation-direction), and retain this during the animation-delay period  */
     animation-fill-mode: backwards;
