@@ -1,0 +1,64 @@
+.btn {
+    &:link,
+    &:visited {
+        font-size: 1.6rem;
+        display: inline-block;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        border-radius: 10rem;
+        transition: all .2s;
+        position: relative;
+}
+
+    &:hover {
+        /* Y axis moves from the top to bottom so we need negative value */
+        transform: translateY(-0.3rem);
+        box-shadow: 0 1rem 2rem rgba($color-black,.2);
+
+         /* this ::after will work only when we hovered over the button */
+        &::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+        }
+    }
+    
+    &:active {
+        /* it is in relation to initail link state */
+        transform: translateY(-0.1rem);
+        /* values of the Y axis and blur are twice smaller then on :hever - from experience it works good */
+        box-shadow: 0 .5rem 1rem rgba($color-black,.2);
+    }
+    
+    &--white {
+        background-color:$color-white;
+        color: $color-gray-dark;
+
+        &::after {
+            background-color: $color-white;
+        }
+    }
+    
+    &::after {
+        /* ::after will work only when you add content prop. and we want it to behave like our button so it has to have display prop. of inline-block */
+        /* .btn::after is treated like a child of the .btn */
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 100px;
+        /* to put it behind actual button use absolute positioning and add reference to closest ancestor and add z-index */
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s;
+    }
+    
+    &--animated {
+        animation: moveInBottom .5s ease-out .75s;
+        /* applies the 0% animation before it stars - The element will get the style values that is set by the first keyframe (depends on animation-direction), and retain this during the animation-delay period  */
+        animation-fill-mode: backwards;
+    }
+
+}
