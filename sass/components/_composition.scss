@@ -1,0 +1,43 @@
+.composition {
+    position: relative;
+
+    &__photo {
+        // flexible images
+        width: 55%;
+        box-shadow: 0 1.5rem 4rem rgba($color-black,.4);
+        border-radius: 2px; 
+        position: absolute;
+        // z-index used to have them in normal state
+        z-index: 10;
+        transition: all .2s;
+        outline-offset: 2rem;
+
+        &--p1 {
+            left: 0;
+            top: -2rem;
+        }
+
+        &--p2 {
+            right: 0;
+            top: 2rem;
+        }
+
+        &--p3 {
+            left: 20%;
+            top: 10rem;
+        }
+
+        &:hover {
+          outline: 1.5rem solid $color-primary;
+          // with the translateY the move outside a little bit
+          transform: scale(1.05) translateY(.5rem);
+          box-shadow: 0 2.5rem 4rem rgba($color-black,.5);
+          // z-index used to display image on the top of the others
+          z-index: 20;
+        }
+    }
+    // when you are on the top of the composition all images that are not in hover state shrink under the one that is hovered
+    &:hover &__photo:not(:hover) {
+      transform: scale(.9);
+    }
+}
