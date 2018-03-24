@@ -11,7 +11,7 @@
     /* .logo-box is positioned absolutely in relation to his first ancestor with declared position - .header with postion: relative; */
     position: relative;
 
-    clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
     // & - ampersand czyli Et
 
