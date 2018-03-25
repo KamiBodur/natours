@@ -4,5 +4,25 @@
     // we make negativ margin-top to go up and cover the white space where the polygon clip was used
     margin-top: -20vh;
 
-    @include clearfix;
+    // @include clearfix; - here it was clearix because thought the clearfix was needed on this class but it was needed on .row class!!! - you can find it in _utilities.scss
+}
+
+.section-features {
+    padding: 20rem 0;
+    background-image: linear-gradient(
+    to right bottom,
+    /* you cannot add #HEX to RGBa in regular CSS but in SCSS you can */
+         rgba($color-primary, 0.808),
+         rgba($color-primary-dark, 0.808)),
+         url(../img/nat-4.jpg);
+    background-size: cover;
+    margin-top: -11.25rem;
+
+    transform: skewY(-7deg);
+    // it takes direct childe of section-features which is ".row" in this case and select all "*" elements/selectors contained inside of it - on the other hand it won't skew the elements inside because they are not direct childrens!
+    & > * {
+        transform: skewY(7deg);
+    }
+
+    // @include clearfix; - here it was clearix because thought the clearfix was needed on this class but it was needed on .row class!!! - you can find it in _utilities.scss
 }
