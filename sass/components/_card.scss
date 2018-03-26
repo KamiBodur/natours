@@ -1,0 +1,44 @@
+.card {
+    position: relative;
+    // you have to experiment with the value of the perspective, the lower value is the craziest effect will bt
+    perspective: 150rem;
+    // specifing the height here fixes the issue of the broken perspective (please see comment below as well)
+    height: 50rem;
+
+    &__side {
+        height: 50rem;
+        transition: all 1s ease;
+        // we took them from thier naturall flow so the parent has collapsed - you cannot use the clearfix for this issue, so you have to specify the height for the parent!
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        // previously it was fixing the problem - now it really helps to hide to back side of an element
+        backface-visibility: hidden;
+        border-radius: 3px;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+        &--front {
+            background-color: $color-white;
+        }
+
+        &--back {
+            background-color: green;
+            // before we hover the card this side is hidden so already rotated
+            transform: rotateY(180deg);
+
+            &-1 {
+                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+            }
+        }
+    }
+
+    // when we hover the card the side will be transformed
+    &:hover &__side--front {
+        transform: rotateY(180deg);
+    }
+
+    &:hover &__side--back {
+        transform: rotateY(0);
+    }
+}

@@ -26,3 +26,9 @@
 
     // @include clearfix; - here it was clearix because thought the clearfix was needed on this class but it was needed on .row class!!! - you can find it in _utilities.scss
 }
+
+.section-tours {
+    background-color: $color-grey-light-1;
+    padding: 25rem 0 50rem 0;
+    margin-top: -11.3rem;
+}
