@@ -1,12 +1,14 @@
+// FUNCTIONALITY
+
 .card {
     position: relative;
     // you have to experiment with the value of the perspective, the lower value is the craziest effect will bt
     perspective: 150rem;
     // specifing the height here fixes the issue of the broken perspective (please see comment below as well)
-    height: 50rem;
+    height: 52rem;
 
     &__side {
-        height: 50rem;
+        height: 52rem;
         transition: all 1s ease;
         // we took them from thier naturall flow so the parent has collapsed - you cannot use the clearfix for this issue, so you have to specify the height for the parent!
         position: absolute;
@@ -16,6 +18,8 @@
         // previously it was fixing the problem - now it really helps to hide to back side of an element
         backface-visibility: hidden;
         border-radius: 3px;
+        // img was overflowing the parent
+        overflow: hidden;
         box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
 
         &--front {
@@ -35,10 +39,79 @@
 
     // when we hover the card the side will be transformed
     &:hover &__side--front {
-        transform: rotateY(180deg);
+        transform: rotateY(-180deg);
     }
 
     &:hover &__side--back {
         transform: rotateY(0);
     }
+
+    // FRONT SIDE STYLING
+
+    &__picture {
+
+        background-size: cover;
+        height: 23rem;
+        background-blend-mode: screen;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+        &--1 {
+            background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../img/nat-5.jpg);
+        }
+
+        &--2 {
+            background-image: url(../img/nat-5.jpg);
+        }
+        &--3 {
+            background-image: url(../img/nat-5.jpg);
+        }
+    }
+
+    &__heading {
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: right;
+        color: $color-white;
+        position: absolute;
+        top: 12rem;
+        right: 2rem;
+        width: 70%;
+        z-index: 1;
+    }
+
+    &__heading-span {
+        // this creates the padding on both sides of separated text like they were two single entieties
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        padding: 1rem 1.5rem;
+
+        &--1 {
+            background-image: linear-gradient(to right bottom,
+            rgba($color-secondary-light, .85),
+            rgba($color-secondary-dark, .85));
+        }
+    }
+
+    &__details {
+        padding: 3rem;
+
+        ul {
+            list-style: none;
+            width: 80%;
+            margin: 0 auto;
+
+            li {
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 1rem;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid $color-grey-light-2;
+                }
+            }
+
+        }
+    }
 }
+
