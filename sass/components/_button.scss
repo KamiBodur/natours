@@ -26,18 +26,29 @@
     &:active {
         /* it is in relation to initail link state */
         transform: translateY(-0.1rem);
-        /* values of the Y axis and blur are twice smaller then on :hever - from experience it works good */
+        /* values of the Y axis and blur are twice smaller then on :hover - from experience it works good */
         box-shadow: 0 .5rem 1rem rgba($color-black,.2);
+        // box shadow when pressing the button
     }
     
     &--white {
-        background-color:$color-white;
+        background-color: $color-white;
         color: $color-gray-dark;
 
         &::after {
             background-color: $color-white;
         }
     }
+
+    &--green {
+        background-color: $color-primary;
+        color: $color-white;
+
+        &::after {
+            background-color: $color-primary;
+        }
+    }
+
     
     &::after {
         /* ::after will work only when you add content prop. and we want it to behave like our button so it has to have display prop. of inline-block */
