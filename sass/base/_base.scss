@@ -13,11 +13,33 @@ html {
     /* font-size is in% as to user browser could easily change the font size within his browser (not in pxs!) - 16px = 100% */
     /* 10px/16px = 0.625 => 62.5% */
     // since it is a typography we should usually put this to topography.scss but here it is a general setting for us!
-    // This defines what 1rem is
+    // This defines what 1rem is - 1rem = 10px
     font-size: 62.5%;
+
+
+    // -------> we don't need this one as the tab-port will apply to the phone as well
+    // @include respond(phone) {
+    //     font-size: 50%;
+    // }
+
+    @include respond(tab-land) {
+        font-size: 56.25%; // 1rem = 9px, 9/16 = 56.25%
+    }
+    @include respond(tab-port) {
+        font-size: 50%; // 1rem = 8px, 8/16 = 50%
+    }
+    @include respond(big-desktop) {
+        font-size: 75%; // 1rem = 12px, 12/16 = 75%
+    }
 }
 
 body {
 /* better practice to put borderd box value here than in *selector and then give the box-sizing: inherit; to the *selector */
     box-sizing: border-box;
+    padding: 3rem;
+
+    @include respond(tab-port) {
+        padding: 0;
+    }
+
 }

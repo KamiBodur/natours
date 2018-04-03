@@ -15,6 +15,29 @@
 </head>
 
 <body>
+
+	<div class="naviagtion">
+		<input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+		<!-- beacause of id and for attribute our <label> is clickable so we can hide the checkbox -->
+		<label for="navi-toggle" class="navigation__button">
+			<span class="navigation__icon">&nbsp;</span>
+		</label>
+		<div class="navigation__background">
+			<!-- this &nbsp stands for white space in html -->
+			&nbsp;
+		</div>
+
+		<nav class="navigation__nav">
+			<ul class="navigation__list">
+				<li class="naviagtion__item"><a href="" class="navigation__link"><span>01</span>About Natours</a></li>
+				<li class="naviagtion__item"><a href="" class="navigation__link"><span>02</span>Your benefits</a></li>
+				<li class="naviagtion__item"><a href="" class="navigation__link"><span>03</span>Popular tours</a></li>
+				<li class="naviagtion__item"><a href="" class="navigation__link"><span>04</span>Stories</a></li>
+				<li class="naviagtion__item"><a href="" class="navigation__link"><span>05</span>Book now</a></li>
+			</ul>
+		</nav>
+	</div>
+
 	<header class="header">
 		<div class="header__logo-box">
 			<img src="img/logo-white.png" alt="Logo" class="header__logo">
@@ -154,7 +177,7 @@
 									<p class="card__price-only">Only</p>
 									<p class="card__price-value">$297</p>
 								</div>
-								<a href="#" class="btn btn--white">Book now</a>
+								<a href="#popup" class="btn btn--white">Book now</a>
 							</div>
 						</div>
 					</div>
@@ -184,7 +207,7 @@
 									<p class="card__price-only">Only</p>
 									<p class="card__price-value">$1297</p>
 								</div>
-								<a href="#" class="btn btn--white">Book now</a>
+								<a href="#popup" class="btn btn--white">Book now</a>
 							</div>
 						</div>
 					</div>
@@ -214,7 +237,7 @@
 									<p class="card__price-only">Only</p>
 									<p class="card__price-value">$847</p>
 								</div>
-								<a href="#" class="btn btn--white">Book now</a>
+								<a href="#popup" class="btn btn--white">Book now</a>
 							</div>
 						</div>
 					</div>
@@ -222,12 +245,20 @@
 			</div>
 
 			<div class="u-center-text u-margin-top-huge">
-					<a href="#" class="btn btn--green">Discover all tours</a>
+				<a href="#" class="btn btn--green">Discover all tours</a>
 			</div>
 
 		</section>
 		
 		<section class="section-stories">
+
+			<div class="bg-video">
+				<video class="bg-video__content" autoplay muted loop>
+					<source src="img/video.mp4" type="video/mp4">
+					<source src="img/video.webm" type="video/webm">
+						Your browser is not supported
+				</video>
+			</div>
 
 			<div class="u-center-text u-margin-bottom-big">
 				<h2 class="heading-secondary">
@@ -249,23 +280,117 @@
 			</div>
 
 			<div class="row">
-					<div class="story">
-						<figure class="story__shape">
-							<img src="img/nat-9.jpg" alt="person on a tour" class="story__img">
-							<figcaption class="story__caption">Jack Willson</figcaption>
-						</figure>
-						<div class="story__text">
-							<h3 class="heading-tertiary">Wow! My life is completely different!</h3>
-							<p>Systems thinking data communities effective the resistance. Inspiring low-hanging fruit; replicable problem-solvers blended value strategy scalable. Youth shared unit of analysis overcome injustice greenwashing philanthropy game-changer. Her body her rights relief collaborative cities, cultivate state.</p>
-						</div>
+				<div class="story">
+					<figure class="story__shape">
+						<img src="img/nat-9.jpg" alt="person on a tour" class="story__img">
+						<figcaption class="story__caption">Jack Willson</figcaption>
+					</figure>
+					<div class="story__text">
+						<h3 class="heading-tertiary">Wow! My life is completely different!</h3>
+						<p>Systems thinking data communities effective the resistance. Inspiring low-hanging fruit; replicable problem-solvers blended value strategy scalable. Youth shared unit of analysis overcome injustice greenwashing philanthropy game-changer. Her body her rights relief collaborative cities, cultivate state.</p>
 					</div>
 				</div>
+			</div>
 
-				<div class="u-center-text u-margin-top-huge">
-						<a href="#" class="btn-text">Read all stories &rarr;</a>
+			<div class="u-center-text u-margin-top-huge">
+					<a href="#" class="btn-text">Read all stories &rarr;</a>
+			</div>
+
+		</section>
+
+		<section class="section-book">
+			<div class="row">
+				<div class="book">
+					<div class="book__form">
+						<form action="#" class="form">
+							<div class="u-margin-bottom-medium">
+								<h2 class="heading-secondary">
+									Start booking now
+								</h2>
+							</div>
+
+							<div class="form__group">
+								<input type="text" class="form__input" placeholder="Full Name" required id="name">
+								<label for="name" class="form__label">Full name</label>
+							</div>
+
+							<div class="form__group">
+								<input type="email" class="form__input" placeholder="Email Address" required id="email">
+								<label for="email" class="form__label">Email address</label>
+							</div>
+
+							<div class="form__group u-margin-bottom-medium">
+								<div class="form__radio-group">
+									<input type="radio" class="form__radio-input" id="small" name="size">
+									<label for="small" class="form__radio-label">
+										<span class="form__radio-button"></span>
+										Small tour group
+									</label>
+								</div>
+
+								<div class="form__radio-group">
+									<input type="radio" class="form__radio-input" id="large" name="size">
+									<label for="large" class="form__radio-label">
+										<span class="form__radio-button"></span>
+										Large tour group
+									</label>
+								</div>
+							</div>
+
+							<div class="form__group">
+								<!-- in a form we need reall button element not just an ancor link a href etc -->
+								<button class="btn btn--green">Next step &rarr;</button>
+							</div>
+
+						</form>
+					</div>
 				</div>
+			</div>
 		</section>
 	</main>
+
+	<footer class="footer">
+
+		<div class="footer__logo-box">
+			<img src="img/logo-green-2x.png" alt="full logo" class="footer__logo">
+		</div>
+
+		<div class="row">
+
+			<div class="col-1-of-2">
+				<div class="footer__navigation">
+					<ul class="footer__list">
+						<li class="footer__item"><a href="#" class="footer__link">Company</a></li>
+						<li class="footer__item"><a href="#" class="footer__link">Contact us</a></li>
+						<li class="footer__item"><a href="#" class="footer__link">Careers</a></li>
+						<li class="footer__item"><a href="#" class="footer__link">Privacy</a></li>
+						<li class="footer__item"><a href="#" class="footer__link">Terms</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-1-of-2">
+					<p class="footer__copyright">Built by <a href="" class="footer__link"> Jonas Schmedtmann</a> for his online course. <a href="#" class="footer__link"> Advanced CSS and Sass</a>. Copyright &copy; by Jonas Schmedtmann.</p>
+			</div>
+		</div>
+	</footer>
+
+	<div class="popup" id="popup">
+		<div class="popup__content">
+			<div class="popup__left">
+				<img src="img/nat-8.jpg" alt="Tour photo" class="popup__img">
+				<img src="img/nat-9.jpg" alt="Tour photo" class="popup__img">
+			</div>
+		
+			<div class="popup__right">
+				<a href="#section-tours" class="popup__close">&times;</a>
+				<h2 class="heading-secondary u-margin-bottom-medium">Start booking now</h2>
+				<h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please read these terms before booking</h3>
+				<p class="popup__text">When living a fully ethical life social capital targeted venture philanthropy the resistance citizen-centered. Energize co-create theory of change, low-hanging fruit synergy, triple bottom line agile social intrapreneurship collaborate. Progress human-centered; targeted; incubator issue outcomes to scalable venture philanthropy citizen-centered.</p>
+				<a href="#" class="btn btn--green">Book now</a>
+			</div>
+		</div>
+	</div>
 
 <!-- <section class="grid-test">
 	<div class="row">

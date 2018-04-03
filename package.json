@@ -8,8 +8,10 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "live-server": "^1.2.0"
+  },
   "devDependencies": {
-    "node-sass": "^4.7.2"
+    "node-sass": "^4.8.3"
   }
 }
