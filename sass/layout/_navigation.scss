@@ -110,7 +110,7 @@
 
     // adjacent sibling selector was used to make nav and background appear when the navigation__checkbox is checked
     &__checkbox:checked ~ &__background {
-        transform: scale(50);
+        transform: scale(60);
     }
 
     &__checkbox:checked ~ &__nav {
