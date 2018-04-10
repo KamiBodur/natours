@@ -15,7 +15,9 @@
         top: 0;
         left: 0;
         width: 100%;
-        // previously it was fixing the problem - now it really helps to hide to back side of an element
+        // always put the prefix version before the original one
+        -webkit-backface-visibility: hidden;
+         // previously it was fixing the problem - now it really helps to hide to back side of an element
         backface-visibility: hidden;
         border-radius: 3px;
         // img was overflowing the parent
@@ -66,7 +68,10 @@
         &--1 {
             background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../img/nat-5-small.jpg);
 
-            @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+            @media (min-resolution: 192dpi) and (min-width: 37.5em), 
+            // this webkit below means that the mobile device should use the image 2x resolution/density - Safari browser support
+            (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), 
+            (min-width: 125em) {
                 background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../img/nat-5.jpg);
             }
         }
@@ -74,14 +79,20 @@
         &--2 {
             background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url(../img/nat-6-small.jpg);
 
-            @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+            @media (min-resolution: 192dpi) and (min-width: 37.5em), 
+            // this webkit below means that the mobile device should use the image 2x resolution/density - Safari browser support
+            (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), 
+            (min-width: 125em) {
                 background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url(../img/nat-6.jpg);
             }
         }
         &--3 {
             background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), url(../img/nat-7-small.jpg);
 
-            @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+            @media (min-resolution: 192dpi) and (min-width: 37.5em), 
+            // this webkit below means that the mobile device should use the image 2x resolution/density - Safari browser support
+            (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), 
+            (min-width: 125em) {
                 background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), url(../img/nat-7.jpg);
             }
         }
